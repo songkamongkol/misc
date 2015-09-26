@@ -24,7 +24,7 @@
 not be freed up. As of 09/25/2015, the `hard-delete` (removing images from storage backend) is not yet supported.
 
 ## Misc
-Below are chat archived from #docker-distribution regarding this:
+Below are chat archived from #docker-distribution IRC channel in [freenode](http://webchat.freenode.net/) regarding this:
 
 ```
 [14:03] == s0mb00n [4a3efd82@gateway/web/freenode/ip.74.62.253.130] has joined #docker-distribution
