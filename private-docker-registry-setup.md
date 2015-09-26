@@ -26,7 +26,7 @@ Setup Private Docker Registry (v2) with nginx reverse proxy. Nginx will be use f
         cp certs/domain.key /etc/ssl/private/registry.key
         cp certs/domain.crt /etc/ssl/private/registry.crt
   
-4. Replace `/etc/nginx/nginx.conf` with this [nginx.conf](https://github.com/songkamongkol/doc/new/master/nginx.conf) and restart nginx service
+4. Replace `/etc/nginx/nginx.conf` with this [nginx.conf](https://github.com/songkamongkol/doc/blob/master/nginx.conf) and restart nginx service
 
         sudo systemctl restart nginx.service
         
