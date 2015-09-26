@@ -6,7 +6,8 @@
 * curl is installed on the private docker registry host
 
 ## Steps
-1. Make sure `delete` is enabled in the docker registry configuration. See [this](https://github.com/docker/distribution/blob/master/docs/configuration.md#delete) for detail on how to enable delete
+1. Make sure `delete` is enabled in the docker registry configuration. See [this](https://github.com/docker/distribution/blob/master/docs/configuration.md#delete) for detail on how to enable delete. Restart the registry if registry config file is updated.
+
 2. Find out the `digest` of the image to be delete using the following command
 
         curl -vv -XGET localhost:5000/v2/labserver/manifests/somboon
@@ -24,6 +25,9 @@
 not be freed up. As of 09/25/2015, the `hard-delete` (removing images from storage backend) is not yet supported.
 
 ## Misc
+If you see the following error, then `delete` is not yet enabled in registry config:
+```
+
 Below are chat archived from #docker-distribution IRC channel in [freenode](http://webchat.freenode.net/) regarding this:
 
 ```
