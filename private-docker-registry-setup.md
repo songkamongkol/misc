@@ -37,10 +37,10 @@ Setup Private Docker Registry (v2) with nginx reverse proxy. Nginx will be use f
 ## Docker Client - Setup
 1. Install docker (see above)
 2. Obtain certificate file created from step 3 of the **Docker Registry Host - Setup** section above and place them in the appropriate location
-    >In this example, the docker host name is orion-boon.cal.ci.spirentcom.com
+    >In this example, the docker registry hostname is orion-boon.cal.ci.spirentcom.com
         
         mkdir /etc/docker/certs.d/orion-boon.cal.ci.spirentcom.com
-        cp domain.key /etc/docker/certs.d/orion-boon.cal.ci.spirentcom.com/ca.crt
+        cp domain.crt /etc/docker/certs.d/orion-boon.cal.ci.spirentcom.com/ca.crt
 
 3. Restart docker daemon if it's already running (`docker -d` or `docker daemon`)
 4. To pull from the private registry, use the following command
