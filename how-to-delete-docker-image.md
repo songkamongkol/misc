@@ -28,7 +28,7 @@ not be freed up. As of 09/25/2015, the `hard-delete` (removing images from stora
 If you see the following error, then `delete` is not yet enabled in registry config:
 ```
 error:
-[15:08] <s0mb00n> thanks @rscothern, here is the command I use `curl -XDELETE localhost:5000/v2/labserver/manifests/sha256:e5460f4ccf28b7ce865f9bb95761ae336c25ff5be059f92988049ecee13f657e` but I got the following error:  `{"errors":[{"code":"UNSUPPORTED","message":"The operation is unsupported."}]}`...
+ `{"errors":[{"code":"UNSUPPORTED","message":"The operation is unsupported."}]}`...
 ```
 
 Below are chat archived from #docker-distribution IRC channel in [freenode](http://webchat.freenode.net/) regarding this:
