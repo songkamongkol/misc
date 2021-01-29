@@ -1,4 +1,4 @@
-# Doc
-Documentation, how-to's, notes
+# Miscellaneous
+Documentation, how-to's, notes, code snippets
 
 
