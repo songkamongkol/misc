@@ -1,6 +1,8 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+export P4EDITOR=/usr/bin/vi
+export P4PORT=perforce.spirentcom.com:1666
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/songkamong/.oh-my-zsh"
 
@@ -68,7 +70,7 @@ ZSH_THEME="eastwood"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(aws git colorize jsontools kubectl pip python brew osx)
+plugins=(aws git colorize jsontools kubectl pip python brew macos)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -98,35 +100,15 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias login-all="(ADPASS=\$(security find-generic-password -a songkamong -s ActiveDirectory -w);\
-     cd ~/code/src/github.com/SpirentCom/cip-devops/scripts/onelogin/aws/assume-role && python3 ./aws_assume_role.py -u songkamong --onelogin-password \$ADPASS;\
-     cd ~/code/src/github.com/SpirentCom/cip-devops/scripts/onelogin/aws/assume-role && python3 ./aws_assume_role.py -u songkamong --profile spirent-orion --onelogin-password \$ADPASS;\
-     vault login -token-only -method=ldap username=songkamong password=\$ADPASS)"
-
-# Terraform helpers
 export TF_VAR_user_identity=songkamong
 export TF_PLUGIN_CACHE_DIR="/Users/songkamong/.terraform.d/plugin-cache"
-
-alias t="terraform"
+alias tf="terraform"
 alias td="terraform-docs markdown"
-
-alias login-aws="(export TF_VAR_user_identity=songkamong && cd ~/code/src/github.com/SpirentCom/cip-devops/scripts/onelogin/aws/assume-role && python3 ./aws_assume_role.py -u songkamong)"
-alias login-aws-orion="(cd ~/code/src/github.com/SpirentCom/cip-devops/scripts/onelogin/aws/assume-role && python3 ./aws_assume_role.py -u songkamong --profile spirent-orion)"
-
-
-
+alias login-aws="(cd ~/Documents/code/SpirentCom/cip-devops/scripts/onelogin/aws/assume-role && python3 ./aws_assume_role.py -u songkamong --duration 28800)"
+alias login-aws-orion="(cd ~/Documents/code/SpirentCom/cip-devops/scripts/onelogin/aws/assume-role && python3 ./aws_assume_role.py -u songkamong --profile spirent-orion --duration 28800)"
 # Vault Helpers
-export VAULT_ADDR="https://10.198.136.10:8200"
-# export VAULT_CACERT="/Users/songkamong/code/cip-devops/packer/common/all/certificates/cip-devops-rootCA.crt"
-
+export VAULT_ADDR="https://vault.spirent.io"
 alias login-vault="echo 'Logging into Vault via Active Directory...' ; export VAULT_TOKEN=\$(vault login -token-only -method=ldap)"
-
-
-# Go Setup
-# make the direcotry
-export GOPATH=/Users/songkamong/golib
-export PATH=$PATH:$GOPATH/bin
-
-# make workspace location
-export GOPATH=$GOPATH:/Users/songkamong/code/gocode
-export PATH="/usr/local/opt/go/bin:$PATH"
+alias login-new-vault="echo 'Logging into Vault (https://vault.spirent.io) via Active Directory...' ; export VAULT_ADDR=https://vault.spirent.io; export VAULT_TOKEN=\$(vault login -token-only -method=ldap)"
+[[ /usr/local/bin/kubectl ]] && source <(kubectl completion zsh)
+eval "$(pyenv init -)"
