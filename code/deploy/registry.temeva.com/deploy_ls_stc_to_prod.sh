@@ -33,14 +33,14 @@ fi
 
 # Load, tag and push labserver image to registry.temeva.com
 docker load -i ./${labserver_filename}
-ls_image_id=$(docker images registry.oriontest.net/labserver -q)
+ls_image_id=$(docker images -q registry.oriontest.net/labserver)
 docker tag $ls_image_id 127.0.0.1:5001/labserver:${mj_version}
 docker push 127.0.0.1:5001/labserver:${mj_version}
 
 # Unzip, load, tag and push stc image from the extracted files
 unzip ${stc_filename}
 docker load -i ./stc_${release_version}.tgz
-stc_image_id=$(docker images stc:${release_version} -q)
+stc_image_id=$(docker images -q stc:${release_version})
 docker tag ${stc_image_id} 127.0.0.1:5001/stc:${release_version}
 docker push 127.0.0.1:5001/stc:${release_version}
 
