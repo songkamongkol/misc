@@ -3,6 +3,9 @@
 # -- Check salt-master health and update node-exporter
 # -- salt file accordingly (1=All ok, 0=problem)
 # --
+# -- Add the following crontab entry for this script on
+# -- salt-master instance
+# -- */5 * * * * /usr/bin/python /opt/node-exporter/text/check_salt_master_up.py /opt/node-exporter/text/salt.prom
 
 import sys
 import subprocess
