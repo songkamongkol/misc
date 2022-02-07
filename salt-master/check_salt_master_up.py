@@ -22,6 +22,6 @@ saltkey_output = subprocess.check_output(['salt-key', '--output=json'])
 saltkeys = json.loads(saltkey_output)
 
 if len(saltkeys['minions']) < 24:
-    update_salt(1)
-else:
     update_salt(0)
+else:
+    update_salt(1)
